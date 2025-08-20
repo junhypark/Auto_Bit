@@ -1,0 +1,11 @@
+aiohttp
+certifi
+httpx
+pyjwt
+numpy
+requests
+tulipy
+urllib3
+uuid
+websockets
+dotenv
