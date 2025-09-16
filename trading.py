@@ -19,7 +19,7 @@ if not hasattr(shared_resources, "lasy_buy_date"):
 
 KST = ZoneInfo("Asia/Seoul")
 
-def _nexㅅ_morning_9_kst(now: datetime):
+def _next_morning_9_kst(now: datetime):
     target_today = now.replace(hour=9, minute=0, second=0, microsecond=0, tzinfo=KST)
     return target_today if now <= target_today else (target_today + timedelta(days=1))
 
