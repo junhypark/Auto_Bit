@@ -4,11 +4,14 @@ import certifi
 import websockets
 from datetime import datetime
 import ssl
-from connect.webhook_manager import send_webhook, send_error_webhook
+from manager.webhook_manager import send_webhook, send_error_webhook
 import shared_resources
 
 async def public_websocket_connect():
-    url = "wss://api.upbit.com/websokcet/v1"
+    """"
+    업비트 websocket_public 용으로 사용할 웹소켓을 반환합니다.
+    """
+    url = "wss://api.upbit.com/websocket/v1"
     ssl_context = ssl.create_default_context(cafile=certifi.where())
     try:
         websocket = await websockets.connect(url, ssl=ssl_context, compression="deflate")
@@ -21,5 +24,3 @@ async def public_websocket_connect():
         await send_error_webhook(msg)
         print(f"[{datetime.now()}]" + msg)
         sys.exit(0)
-        # sys.exit(1) --> 강제로 프로그램 종료
-        # sys.exit(0) --> 정상적으로 프로그램 종료

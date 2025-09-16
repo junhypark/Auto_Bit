@@ -4,6 +4,7 @@ import numpy as np
 import time
 import threading
 
+
 def get_all_krw_coins():
     """
     업비트 API를 통해 KRW 마켓의 모든 코인 이름을 가져옴.
@@ -16,6 +17,7 @@ def get_all_krw_coins():
     # KRW 마켓 코인 필터링
     krw_coins = [market["market"] for market in markets if market["market"].startswith("KRW-")]
     return krw_coins
+
 
 def get_minute_candles(coin, count=102):
     """
@@ -55,6 +57,7 @@ def get_minute_candles(coin, count=102):
         except Exception as e:
             print(f"기타 오류 발생 ({coin}): {e}. {sec}초 후 재시도합니다.")
             time.sleep(sec)
+
 
 def calculate_indicators_for_coins(coins, indicators_dict):
     """
@@ -113,6 +116,7 @@ def calculate_indicators_for_coins(coins, indicators_dict):
 
         except Exception as e:
             print(f"Error processing {coin}: {e}")
+
 
 def calculate_indicators(indicators_dict, num_threads):
     """

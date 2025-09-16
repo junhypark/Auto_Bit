@@ -1,3 +1,59 @@
-.env
-logs/
-*.logs
+# Python bytecode 및 캐시 파일
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyo
+*.pyd
+*.whl
+
+# 가상 환경 폴더
+venv/
+.env/
+env/
+
+# 빌드 및 배포 파일
+build/
+dist/
+*.egg-info/
+
+# 로그 및 임시 파일
+*.log
+*.tmp
+*.swp
+*.swo
+*.swn
+
+# Jupyter Notebook 체크포인트
+.ipynb_checkpoints/
+
+# IDE 및 에디터 관련 파일
+.vscode/
+.idea/
+*.sublime-workspace
+
+# 시스템 파일 (Mac/Linux)
+.DS_Store
+*.orig
+
+# pytest 및 coverage 결과 파일
+.coverage
+htmlcov/
+*.cover
+*.py,cover
+
+# MyPy 및 기타 타입 체크 관련 파일
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# 특정 환경 변수 파일
+*.env
+*.ini
+*.cfg
+
+# __pycache__ 폴더들 제외
+**/__pycache__/
+
+# Dockerfile 제외
+Dockerfile
