@@ -15,7 +15,9 @@ def get_all_krw_coins():
     markets = response.json()
 
     # KRW 마켓 코인 필터링
-    krw_coins = [market["market"] for market in markets if market["market"].startswith("KRW-")]
+    krw_coins = ['KRW-BTC']
+    # [market["market"] for market in markets if market["market"].startswith("KRW-")]
+    print(krw_coins)
     return krw_coins
 
 
@@ -28,7 +30,7 @@ def get_minute_candles(coin, count=102):
     :param count: 가져올 캔들 개수
     """
     url = "https://api.upbit.com/v1/candles/minutes/1"
-    params = {"market": coin, "count": count}
+    params = {"market": coin, "count": count, "group": "default"}
 
     while True:
         try:
@@ -36,6 +38,7 @@ def get_minute_candles(coin, count=102):
             # 429 오류가 발생하면 재시도
             sec=0.1
             if response.status_code == 429:
+                # print(f"code == {response.status_code}")
                 # print(f"429 오류 발생 ({coin}). {sec}초 후 재시도합니다.")
                 time.sleep(sec)
                 continue

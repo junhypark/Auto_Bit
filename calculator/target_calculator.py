@@ -27,16 +27,8 @@ def process_coin(coin, values, target_dict, lock):
     current_price = values[8]
 
     # 조건 계산
-    condition1 = (t2_ma20 < t2_close) and (t2_vwma100 < t2_close)
-    condition2 = (t1_ma20 < t1_close) and (t1_vwma100 < t1_close)
-    condition3 = t1_volume > 3 * t2_volume
-    condition4 = current_price > t1_close
-    condition5 = t1_volume * t1_close > 100_000_000
-
-    # 모든 조건을 만족하면 target_dict에 추가
-    if condition1 and condition2 and condition3 and condition4 and condition5:
-        with lock:
-            target_dict[coin] = current_price
+    with lock:
+        target_dict[coin] = current_price
 
 def classify_targets(indicators_dict, target_dict):
     """
