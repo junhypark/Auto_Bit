@@ -57,3 +57,5 @@ htmlcov/
 
 # Dockerfile 제외
 Dockerfile
+
+*.csv
